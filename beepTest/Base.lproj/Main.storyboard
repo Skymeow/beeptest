@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="beepTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2F-rb-c00" userLabel="Button Go">
+                                <rect key="frame" x="162" y="527" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.43137254901960786" green="0.81960784313725488" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="03p-OR-zn9"/>
+                                    <constraint firstAttribute="height" constant="50" id="naQ-hH-Iy1"/>
+                                </constraints>
+                                <state key="normal" title="Go">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S9G-4z-1h3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qV-62-C64">
+                                <rect key="frame" x="162" y="597" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="4bJ-4T-6lw"/>
+                                    <constraint firstAttribute="height" constant="50" id="ZG1-ys-k2A"/>
+                                </constraints>
+                                <state key="normal" title="Stop">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WTM-gL-5GI"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jqt-df-ct7">
+                                <rect key="frame" x="67" y="139" width="240" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="7CF-qN-JYi"/>
+                                    <constraint firstAttribute="width" constant="200" id="zLU-Iy-uUO"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkC-S3-Txu" userLabel="counting">
+                                <rect key="frame" x="182" y="211" width="11" height="130"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvF-4D-kZH">
+                                <rect key="frame" x="173" y="391" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next Level"/>
+                                <connections>
+                                    <action selector="nextLevelButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mr6-6v-HeU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25882352941176467" green="0.24313725490196078" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="i2F-rb-c00" firstAttribute="centerX" secondItem="pkC-S3-Txu" secondAttribute="centerX" constant="-0.5" id="GGz-0d-sGs"/>
+                            <constraint firstItem="3qV-62-C64" firstAttribute="leading" secondItem="i2F-rb-c00" secondAttribute="leading" id="HdW-xn-LhB"/>
+                            <constraint firstItem="pkC-S3-Txu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LKL-z3-9tF"/>
+                            <constraint firstItem="pkC-S3-Txu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="370" id="MbS-s9-9QZ"/>
+                            <constraint firstItem="i2F-rb-c00" firstAttribute="top" secondItem="pkC-S3-Txu" secondAttribute="bottom" constant="186" id="bbo-kM-nCv"/>
+                            <constraint firstItem="i2F-rb-c00" firstAttribute="top" secondItem="pkC-S3-Txu" secondAttribute="bottom" constant="119" id="cLR-6p-6Vm"/>
+                            <constraint firstItem="3qV-62-C64" firstAttribute="top" secondItem="i2F-rb-c00" secondAttribute="bottom" constant="20" id="pUZ-vx-R8X"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3qV-62-C64" secondAttribute="bottom" constant="20" id="woX-6t-hfG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonGo" destination="i2F-rb-c00" id="QRS-2z-CMs"/>
+                        <outlet property="buttonStop" destination="3qV-62-C64" id="BeQ-Xt-EPb"/>
+                        <outlet property="clockImage" destination="jqt-df-ct7" id="nP4-JY-5Xc"/>
+                        <outlet property="countingLabel" destination="pkC-S3-Txu" id="d5i-Gm-KAh"/>
+                        <outlet property="nextLevelButton" destination="wvF-4D-kZH" id="bDb-m3-io6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+        </scene>
+    </scenes>
+</document>
