@@ -40,9 +40,27 @@ class ViewController: UIViewController {
     
     var shuttle: Int?
     var shuttleTime: Double?
-    var countDown: Double? //remaining shuttleTime
-    var centiseconds: Double? = 9
-    var seconds: Int?
+    var countDown : Double?
+    var centiseconds: Double?
+    var centiFormat : Int?
+    var seconds : Int?
+    func updateCounter() {
+        if countDown! > 0.05 {
+            print(countDown!)
+            countDown = countDown! - 0.05
+            seconds = Int(countDown!)
+            centiseconds = (countDown! - Double(seconds!)) * 100
+            centiFormat = Int(centiseconds!)
+            var description: String {
+                return NSString(format: "%02d:%02d", seconds!, centiFormat!) as String
+            }
+            countingLabel.text = "\(description)"
+        }
+    }
+    
+    func runTimer() {
+        SwiftTimer = Timer.scheduledTimer(timeInterval: 0.05, target:self, selector: "updateCounter", userInfo: nil, repeats: true)
+    }
     
     @IBOutlet weak var nextLevelButton: UIButton!
     @IBOutlet weak var clockImage: UIImageView!
@@ -51,11 +69,11 @@ class ViewController: UIViewController {
     
     @IBAction func nextLevelButtonTapped(_ sender: UIButton) {
     }
+    
     @IBAction func goButtonTapped(_ sender: UIButton) {
         if buttonStop.isHidden {
+            runTimer()
             buttonStop.isHidden = false
-            SwiftTimer = Timer.scheduledTimer(timeInterval: 0.05, target:self, selector: "updateCounter", userInfo: nil, repeats: true)
-            
         } else {
             buttonStop.isHidden = true
         }
@@ -63,36 +81,21 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var buttonStop: UIButton!
     @IBAction func stopButtonTapped(_ sender: UIButton) {
+        countDown = 9.0
         SwiftTimer.invalidate()
         cycle += 1
         print(cycle)
-        countingLabel.text = "00:00"
-        
-    }
-    
-    func updateCounter() {
-        
-        if Int(countDown!) > 0 {
-        countDown = countDown! - 0.05
-        seconds = Int(countDown!)
-            print(seconds)
-        centiseconds = (countDown! - Double(seconds!)) * 100
-            print(Int(centiseconds!))
-        var description: String {
-            return NSString(format: "%02d:%02d", seconds!, centiseconds!) as String
-        }
-        countingLabel.text = "\(description)"
-        } 
+        //            countingLabel.text = "00:00"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-//            for i in level{run the updateCounter 'shuttle' times}
-            let chartEntry = dataChart[1]
-            countDown = chartEntry!.shuttleTime
-            print(countDown)
+        //            for i in level{run the updateCounter 'shuttle' times}
+        let chartEntry = dataChart[1]
+        countDown = chartEntry!.shuttleTime
+        
         
         
         buttonGo.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
@@ -108,14 +111,6 @@ class ViewController: UIViewController {
         clockImage.layer.cornerRadius = clockImage.frame.width / 2
         clockImage.layer.masksToBounds = true
         clockImage.layer.borderWidth = 5
-        
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
 }
 
